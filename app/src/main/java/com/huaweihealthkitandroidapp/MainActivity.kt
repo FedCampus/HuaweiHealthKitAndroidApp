@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.huaweihealthkitandroidapp.ui.SplashScreen
 import com.huaweihealthkitandroidapp.ui.theme.HuaweiHealthKitAndroidAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +20,9 @@ class MainActivity : ComponentActivity() {
       HuaweiHealthKitAndroidAppTheme {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-          Greeting("Android")
+//          Greeting("Android")
+//          SplashScreen(options = 0, onNextButtonClicked = {})
+          App()
         }
       }
     }

@@ -1,4 +1,5 @@
 package com.huaweihealthkitandroidapp.data
 
-class UiState {
-}
+data class UiState(
+  val quantity: Int = 0,
+)
