@@ -1,11 +1,12 @@
-allprojects {
+buildscript {
     repositories {
         // Add the Maven address.
-        maven {url 'https://developer.huawei.com/repo/'}
+        maven { url 'https://developer.huawei.com/repo/' }
     }
-}
-
-buildscript {
+    dependencies {
+        // Add dependencies.
+        classpath 'com.huawei.agconnect:agcp:1.5.2.300'
+    }
     ext {
         compose_ui_version = '1.2.0'
     }
@@ -16,13 +17,9 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.0' apply false
 }
 
-buildscript{
+allprojects {
     repositories {
         // Add the Maven address.
         maven { url 'https://developer.huawei.com/repo/' }
-    }
-    dependencies {
-        // Add dependencies.
-        classpath 'com.huawei.agconnect:agcp:1.5.2.300'
     }
 }
