@@ -5,28 +5,24 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.sharp.ArrowBack
-import androidx.compose.material.icons.sharp.ArrowForward
-import androidx.compose.material.icons.sharp.Refresh
+import androidx.compose.material.icons.sharp.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.huaweihealthkitandroidapp.ui.AppViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.huaweihealthkitandroidapp.ui.NextNextScreen
-import com.huaweihealthkitandroidapp.ui.NextScreen
-import com.huaweihealthkitandroidapp.ui.SplashScreen
+import com.huaweihealthkitandroidapp.ui.*
 
 
 enum class AppScreen(@StringRes val title: Int) {
   Start(title = R.string.splash_screen),
-  Next(title = R.string.app_name),
-  NextNext(title = R.string.password),
+  Report(title = R.string.report),
+  Post(title = R.string.post),
+  Home(title = R.string.home)
 }
 
 @Composable
@@ -36,8 +32,7 @@ fun AppBar(
   navigateUp: () -> Unit,
   modifier: Modifier = Modifier,
 ) {
-  TopAppBar(
-    title = { Text(stringResource(currentScreen.title)) },
+  TopAppBar(title = { Text(stringResource(currentScreen.title)) },
     modifier = modifier,
     navigationIcon = {
       if (canNavigateBack) {
@@ -48,36 +43,30 @@ fun AppBar(
           )
         }
       }
-    }
-  )
+    })
 }
 
 @Composable
 fun BottomBar(
-  currentScreen: AppScreen,
-  canNavigateBack: Boolean,
-  navigateUp: () -> Unit,
-  navigateMiddle: () -> Unit,
+  navigateFirst: () -> Unit,
+  navigateSecond: () -> Unit,
+  navigateThird: () -> Unit,
   modifier: Modifier = Modifier,
 ) {
   BottomNavigation(
-//    title = { Text(stringResource(currentScreen.title)) },
     modifier = modifier,
   ) {
-    BottomNavigationItem(
-      selected = true,
-      onClick = navigateUp,
-      icon = {
-        Icon(Icons.Sharp.ArrowBack, contentDescription = null)
-      })
-    BottomNavigationItem(
-      selected = false,
-      onClick = navigateMiddle,
-      icon = { Icon(Icons.Sharp.Refresh, contentDescription = null) })
-    BottomNavigationItem(
-      selected = false,
-      onClick = { /*TODO*/ },
-      icon = { Icon(Icons.Sharp.ArrowForward, contentDescription = null) })
+    BottomNavigationItem(selected = true, onClick = navigateFirst, icon = {
+      Icon(Icons.Sharp.AccountBox, contentDescription = null)
+    }, label = { Text(text = stringResource(id = R.string.report)) })
+    BottomNavigationItem(selected = false,
+      onClick = navigateSecond,
+      icon = { Icon(Icons.Sharp.Add, contentDescription = null) },
+      label = { Text(text = stringResource(id = R.string.post)) })
+    BottomNavigationItem(selected = false,
+      onClick = navigateThird,
+      icon = { Icon(Icons.Sharp.Home, contentDescription = null) },
+      label = { Text(text = stringResource(id = R.string.home)) })
 
   }
 }
@@ -99,24 +88,16 @@ fun App(
 
   var showBottomBar by remember { mutableStateOf(false) }
 
-  Scaffold(
-    topBar = {
-      AppBar(
-        currentScreen = currentScreen,
-        canNavigateBack = navController.previousBackStackEntry != null,
-        navigateUp = { navController.navigateUp() }
-      )
-    },
-    bottomBar = {
-      if (showBottomBar)
-        BottomBar(
-          currentScreen = currentScreen,
-          canNavigateBack = navController.previousBackStackEntry != null,
-          navigateUp = { navController.navigateUp() },
-          navigateMiddle = { navController.navigate(AppScreen.NextNext.name) }
-        )
-    }
-  ) { innerPadding ->
+  Scaffold(topBar = {
+    AppBar(currentScreen = currentScreen,
+      canNavigateBack = navController.previousBackStackEntry != null,
+      navigateUp = { navController.navigateUp() })
+  }, bottomBar = {
+    if (showBottomBar) BottomBar(
+      navigateFirst = { navController.navigate(AppScreen.Report.name) },
+      navigateSecond = { navController.navigate(AppScreen.Post.name) },
+      navigateThird = { navController.navigate(AppScreen.Home.name) })
+  }) { innerPadding ->
     val uiState by viewModel.uiState.collectAsState()
     NavHost(
       navController = navController,
@@ -125,30 +106,30 @@ fun App(
     ) {
       composable(route = AppScreen.Start.name) {
         showBottomBar = false
-        SplashScreen(
-          options = 1,
-          onNextButtonClicked = {
-//            viewModel.setQuantity(it)
-            navController.navigate(AppScreen.Next.name)
-          }
+        SplashScreen(options = 1, onNextButtonClicked = {
+          navController.navigate(AppScreen.Report.name)
+        })
+      }
+      composable(route = AppScreen.Report.name) {
+        showBottomBar = true
+        ReportScreen(onExerciseButtonClicked = {
+          navController.navigate(AppScreen.Post.name)
+          println(it)
+        }, onHealthButtonClicked = {
+          navController.navigate(AppScreen.Home.name)
+        }
         )
       }
-      composable(route = AppScreen.Next.name) {
+      composable(route = AppScreen.Post.name) {
         showBottomBar = true
-        NextScreen(
-//          options = 1,
-//          onNextButtonClicked = {
-//            viewModel.setQuantity(it)
-//            navController.navigate(AppScreen.Next.name)
-//          }
+        PostScreen(
         )
       }
-      composable(route = AppScreen.NextNext.name) {
+      composable(route = AppScreen.Home.name) {
         showBottomBar = true
-        NextNextScreen(
+        HomeScreen(
         )
       }
     }
-
   }
 }

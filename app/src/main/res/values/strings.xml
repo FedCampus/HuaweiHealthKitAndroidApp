@@ -5,8 +5,12 @@
     <string name="app_alias">&appname;</string>
     <string name="splash_screen">&appname;</string>
     <string name="report">Report</string>
+    <string name="post">Post</string>
+    <string name="home">Home</string>
     <string name="email">Email:</string>
     <string name="password">Password:</string>
     <string name="login">LOGIN</string>
     <string name="back_button">Back</string>
+    <string name="exercise_report">Exercise Report</string>
+    <string name="health_report">Health Report</string>
 </resources>

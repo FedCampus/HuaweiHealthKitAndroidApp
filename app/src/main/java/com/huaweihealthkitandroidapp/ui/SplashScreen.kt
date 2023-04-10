@@ -1,13 +1,13 @@
 package com.huaweihealthkitandroidapp.ui
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
+import androidx.compose.material.ButtonDefaults.buttonColors
+import androidx.compose.material.TextFieldDefaults.textFieldColors
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,7 +19,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.huaweihealthkitandroidapp.R
-
+import com.huaweihealthkitandroidapp.ui.theme.*
 
 @Composable
 fun SplashScreen(
@@ -33,13 +33,17 @@ fun SplashScreen(
 
   Column(
     modifier = modifier
-      .padding(16.dp)
-      .fillMaxWidth(),
+      .fillMaxSize()
+      .background(MiddleBlue),
     horizontalAlignment = Alignment.CenterHorizontally,
     verticalArrangement = Arrangement.spacedBy(8.dp)
   ) {
     Spacer(modifier = Modifier.height(16.dp))
-    Text(text = stringResource(R.string.app_alias), style = MaterialTheme.typography.h4)
+    Text(
+      text = stringResource(R.string.app_alias),
+      style = MaterialTheme.typography.h4,
+      color = White
+    )
     Spacer(modifier = Modifier.height(16.dp))
     EditField(label = R.string.email,
       keyboardOptions = KeyboardOptions.Default.copy(
@@ -56,7 +60,8 @@ fun SplashScreen(
       value = emailInput,
       onValueChanged = { emailInput = it })
     Spacer(modifier = Modifier.height(16.dp))
-    LoginButton(labelResourceId = R.string.login, onClick = {onNextButtonClicked(0) /*TODO*/
+    LoginButton(labelResourceId = R.string.login, onClick = {
+      onNextButtonClicked(0) /*TODO*/
     })
   }
 }
@@ -75,7 +80,8 @@ fun EditField(
     singleLine = true,
     modifier = modifier.fillMaxWidth(),
     onValueChange = onValueChanged,
-    label = { Text(stringResource(label)) },
+    label = { Text(stringResource(label), color = White) },
+    colors = textFieldColors(cursorColor = White, focusedIndicatorColor = White),
     keyboardOptions = keyboardOptions,
     keyboardActions = keyboardActions
   )
@@ -88,7 +94,9 @@ fun LoginButton(
   modifier: Modifier = Modifier,
 ) {
   Button(
-    onClick = onClick, modifier = modifier.widthIn(min = 250.dp)
+    onClick = onClick,
+    modifier = modifier.widthIn(min = 250.dp),
+    colors = buttonColors(backgroundColor = LightBlue, contentColor = White)
   ) {
     Text(stringResource(labelResourceId))
   }

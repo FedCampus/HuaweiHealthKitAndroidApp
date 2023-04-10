@@ -4,6 +4,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun NextNextScreen() {
-  Text(text = "Sample NextNext Screen")
+fun HomeScreen() {
+  Text(text = "Home Screen")
 }
