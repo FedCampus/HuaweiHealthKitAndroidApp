@@ -3,6 +3,8 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        // 配置HMS Core SDK的Maven仓地址。
+        maven { url 'https://developer.huawei.com/repo/' }
     }
 }
 dependencyResolutionManagement {
@@ -10,6 +12,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // 配置HMS Core SDK的Maven仓地址。
+        maven { url 'https://developer.huawei.com/repo/' }
     }
 }
 rootProject.name = "HuaweiHealthKitAndroidApp"
