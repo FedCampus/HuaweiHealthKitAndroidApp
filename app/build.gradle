@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.huaweihealthkitandroidapp'
+    namespace 'com.fedcampus'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.huaweihealthkitandroidapp"
+        applicationId 'com.cuhk.fedcampus'
         minSdk 29
         targetSdk 33
         versionCode 1

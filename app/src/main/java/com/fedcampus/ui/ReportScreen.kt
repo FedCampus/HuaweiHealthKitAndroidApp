@@ -1,21 +1,18 @@
-package com.huaweihealthkitandroidapp.ui
+package com.fedcampus.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.sharp.AccountBox
 import androidx.compose.material.icons.sharp.Done
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.huaweihealthkitandroidapp.R
-import com.huaweihealthkitandroidapp.ui.theme.DarkBlue
-import com.huaweihealthkitandroidapp.ui.theme.LightBlue
-import com.huaweihealthkitandroidapp.ui.theme.White
+import com.fedcampus.R
+import com.fedcampus.ui.theme.LightBlue
+import com.fedcampus.ui.theme.White
 
 
 @Composable

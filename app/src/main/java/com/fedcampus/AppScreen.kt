@@ -1,4 +1,4 @@
-package com.huaweihealthkitandroidapp
+package com.fedcampus
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
@@ -15,7 +15,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.huaweihealthkitandroidapp.ui.*
+import com.fedcampus.ui.*
+import com.fedcampus.R
 
 
 enum class AppScreen(@StringRes val title: Int) {

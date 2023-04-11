@@ -1,4 +1,4 @@
-package com.huaweihealthkitandroidapp.ui.theme
+package com.fedcampus.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

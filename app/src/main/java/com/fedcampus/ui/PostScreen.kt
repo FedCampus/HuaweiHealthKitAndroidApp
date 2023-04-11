@@ -1,4 +1,4 @@
-package com.huaweihealthkitandroidapp.ui
+package com.fedcampus.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text

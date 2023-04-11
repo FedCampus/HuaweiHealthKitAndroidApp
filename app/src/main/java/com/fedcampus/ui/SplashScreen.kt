@@ -1,4 +1,4 @@
-package com.huaweihealthkitandroidapp.ui
+package com.fedcampus.ui
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
@@ -18,8 +18,10 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.huaweihealthkitandroidapp.R
-import com.huaweihealthkitandroidapp.ui.theme.*
+import com.fedcampus.ui.theme.LightBlue
+import com.fedcampus.ui.theme.MiddleBlue
+import com.fedcampus.ui.theme.White
+import com.fedcampus.R
 
 @Composable
 fun SplashScreen(
