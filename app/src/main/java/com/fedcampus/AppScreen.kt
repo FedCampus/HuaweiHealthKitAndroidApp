@@ -1,12 +1,13 @@
 package com.fedcampus
 
-import PostScreen
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.sharp.*
+import androidx.compose.material.icons.sharp.AccountBox
+import androidx.compose.material.icons.sharp.Add
+import androidx.compose.material.icons.sharp.Home
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource

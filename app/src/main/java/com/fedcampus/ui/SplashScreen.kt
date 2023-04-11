@@ -42,12 +42,15 @@ fun SplashScreen(
     verticalArrangement = Arrangement.spacedBy(8.dp)
   ) {
     Spacer(modifier = Modifier.height(16.dp))
+
     Text(
       text = stringResource(R.string.app_alias),
       style = MaterialTheme.typography.h4,
       color = White
     )
+
     Spacer(modifier = Modifier.height(16.dp))
+
     EditField(label = R.string.email,
       keyboardOptions = KeyboardOptions.Default.copy(
         keyboardType = KeyboardType.Text, imeAction = ImeAction.Next
@@ -55,6 +58,7 @@ fun SplashScreen(
       keyboardActions = KeyboardActions(onNext = { focusManager.moveFocus(FocusDirection.Down) }),
       value = emailInput,
       onValueChanged = { emailInput = it })
+
     EditField(label = R.string.password,
       keyboardOptions = KeyboardOptions.Default.copy(
         keyboardType = KeyboardType.Password, imeAction = ImeAction.Next
@@ -62,10 +66,19 @@ fun SplashScreen(
       keyboardActions = KeyboardActions(onNext = { focusManager.moveFocus(FocusDirection.Down) }),
       value = emailInput,
       onValueChanged = { emailInput = it })
+
     Spacer(modifier = Modifier.height(16.dp))
+
     LoginButton(labelResourceId = R.string.login, onClick = {
       onNextButtonClicked(0) /*TODO*/
     })
+
+    Spacer(modifier = Modifier.height(16.dp))
+
+    SignUpButton(labelResourceId = R.string.signup, onClick = {
+      onNextButtonClicked(0)
+    })
+
   }
 }
 
@@ -94,6 +107,21 @@ fun EditField(
 // Design the login button
 @Composable
 fun LoginButton(
+  @StringRes labelResourceId: Int,
+  onClick: () -> Unit,
+  modifier: Modifier = Modifier,
+) {
+  Button(
+    onClick = onClick,
+    modifier = modifier.widthIn(min = 250.dp),
+    colors = buttonColors(backgroundColor = LightBlue, contentColor = White)
+  ) {
+    Text(stringResource(labelResourceId))
+  }
+}
+
+@Composable
+fun SignUpButton(
   @StringRes labelResourceId: Int,
   onClick: () -> Unit,
   modifier: Modifier = Modifier,

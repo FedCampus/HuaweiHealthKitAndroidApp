@@ -13,4 +13,5 @@
     <string name="back_button">Back</string>
     <string name="exercise_report">Exercise Report</string>
     <string name="health_report">Health Report</string>
+    <string name="signup">SIGNUP</string>
 </resources>
