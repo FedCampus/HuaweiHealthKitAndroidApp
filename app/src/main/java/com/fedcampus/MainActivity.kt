@@ -1,4 +1,4 @@
-package com.huaweihealthkitandroidapp
+package com.fedcampus
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,8 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.huaweihealthkitandroidapp.ui.SplashScreen
-import com.huaweihealthkitandroidapp.ui.theme.HuaweiHealthKitAndroidAppTheme
+import com.fedcampus.ui.theme.HuaweiHealthKitAndroidAppTheme
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {

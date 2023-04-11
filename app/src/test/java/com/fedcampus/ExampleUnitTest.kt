@@ -1,4 +1,4 @@
-package com.huaweihealthkitandroidapp
+package com.fedcampus
 
 import org.junit.Test
 

@@ -1,7 +1,7 @@
-package com.huaweihealthkitandroidapp.ui
+package com.fedcampus.ui
 
 import androidx.lifecycle.ViewModel
-import com.huaweihealthkitandroidapp.data.UiState
+import com.fedcampus.data.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

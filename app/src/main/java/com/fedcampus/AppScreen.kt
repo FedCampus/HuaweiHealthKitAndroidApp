@@ -1,5 +1,6 @@
-package com.huaweihealthkitandroidapp
+package com.fedcampus
 
+import com.fedcampus.R
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
@@ -10,15 +11,17 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.huaweihealthkitandroidapp.ui.AppViewModel
+import com.fedcampus.ui.AppViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.huaweihealthkitandroidapp.ui.NextScreen
-import com.huaweihealthkitandroidapp.ui.SplashScreen
+import com.fedcampus.ui.NextScreen
+import com.fedcampus.ui.SplashScreen
+
+
 
 
 enum class AppScreen(@StringRes val title: Int) {

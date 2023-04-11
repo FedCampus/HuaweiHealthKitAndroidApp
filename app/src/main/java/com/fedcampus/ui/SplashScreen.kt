@@ -1,4 +1,4 @@
-package com.huaweihealthkitandroidapp.ui
+package com.fedcampus.ui
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
@@ -18,7 +18,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.huaweihealthkitandroidapp.R
+import com.fedcampus.R
 
 
 @Composable
