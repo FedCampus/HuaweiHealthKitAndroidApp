@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+    // 添加如下配置
+    id 'com.huawei.agconnect'
     id 'org.jetbrains.kotlin.android'
 }
 
@@ -13,6 +15,8 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
+
+        resConfigs "en", "zh-rCN"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -47,6 +51,10 @@ android {
 }
 
 dependencies {
+    // Add dependencies.
+    implementation 'com.huawei.agconnect:agconnect-core:1.5.2.300'
+
+    implementation 'com.huawei.hms:hwid:6.9.0.301'
 
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
     implementation "androidx.navigation:navigation-compose:2.5.3"
@@ -63,3 +71,6 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
 }
+
+// Add the information to the bottom of the file.
+apply plugin: 'com.huawei.agconnect'
