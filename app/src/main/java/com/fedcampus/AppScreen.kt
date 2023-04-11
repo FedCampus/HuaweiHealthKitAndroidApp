@@ -1,5 +1,6 @@
 package com.fedcampus
 
+import PostScreen
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
@@ -16,14 +17,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.fedcampus.ui.*
-import com.fedcampus.R
 
 
 enum class AppScreen(@StringRes val title: Int) {
-  Start(title = R.string.splash_screen),
+  SplashScreen(title = R.string.splash_screen),
   Report(title = R.string.report),
   Post(title = R.string.post),
-  Home(title = R.string.home)
+  Home(title = R.string.home),
+  HealthReport(title = R.string.health_report),
+  ExerciseReport(title = R.string.exercise_report)
 }
 
 @Composable
@@ -84,7 +86,7 @@ fun App(
   val backStackEntry by navController.currentBackStackEntryAsState()
   // Get the name of the current screen
   val currentScreen = AppScreen.valueOf(
-    backStackEntry?.destination?.route ?: AppScreen.Start.name
+    backStackEntry?.destination?.route ?: AppScreen.SplashScreen.name
   )
 
   var showBottomBar by remember { mutableStateOf(false) }
@@ -102,10 +104,10 @@ fun App(
     val uiState by viewModel.uiState.collectAsState()
     NavHost(
       navController = navController,
-      startDestination = AppScreen.Start.name,
+      startDestination = AppScreen.SplashScreen.name,
       modifier = modifier.padding(innerPadding)
     ) {
-      composable(route = AppScreen.Start.name) {
+      composable(route = AppScreen.SplashScreen.name) {
         showBottomBar = false
         SplashScreen(options = 1, onNextButtonClicked = {
           navController.navigate(AppScreen.Report.name)
@@ -131,6 +133,20 @@ fun App(
         HomeScreen(
         )
       }
+
+      composable(route = AppScreen.ExerciseReport.name) {
+        showBottomBar = true
+        HomeScreen(
+        )
+      }
+
+      composable(route = AppScreen.HealthReport.name) {
+        showBottomBar = true
+        HomeScreen(
+        )
+      }
+
     }
+
   }
 }
