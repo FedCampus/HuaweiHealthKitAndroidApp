@@ -23,6 +23,7 @@ import com.fedcampus.ui.theme.MiddleBlue
 import com.fedcampus.ui.theme.White
 import com.fedcampus.R
 
+// Design the format of the initial interface
 @Composable
 fun SplashScreen(
   options: Int,
@@ -68,6 +69,7 @@ fun SplashScreen(
   }
 }
 
+// Design the enter text box
 @Composable
 fun EditField(
   @StringRes label: Int,
@@ -89,6 +91,7 @@ fun EditField(
   )
 }
 
+// Design the login button
 @Composable
 fun LoginButton(
   @StringRes labelResourceId: Int,

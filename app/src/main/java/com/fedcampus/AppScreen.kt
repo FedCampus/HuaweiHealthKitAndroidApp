@@ -18,7 +18,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.fedcampus.ui.*
 
-
+// Define different screens of the app
 enum class AppScreen(@StringRes val title: Int) {
   SplashScreen(title = R.string.splash_screen),
   Report(title = R.string.report),
@@ -28,6 +28,7 @@ enum class AppScreen(@StringRes val title: Int) {
   ExerciseReport(title = R.string.exercise_report)
 }
 
+// Callback function to navigate back to the previous screen
 @Composable
 fun AppBar(
   currentScreen: AppScreen,
@@ -49,6 +50,7 @@ fun AppBar(
     })
 }
 
+// The navigation bar to callback at the bottom of the interface
 @Composable
 fun BottomBar(
   navigateFirst: () -> Unit,
@@ -74,6 +76,7 @@ fun BottomBar(
   }
 }
 
+// Navigation between different screens
 @Composable
 fun App(
   modifier: Modifier = Modifier,
