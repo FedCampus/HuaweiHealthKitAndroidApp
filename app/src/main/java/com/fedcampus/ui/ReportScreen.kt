@@ -14,9 +14,12 @@ import com.fedcampus.R
 import com.fedcampus.ui.theme.LightBlue
 import com.fedcampus.ui.theme.White
 
-
+/**
+ * TODO The @param options is reserved for view-model.
+ */
 @Composable
 fun ReportScreen(
+  options: Int,
   onExerciseButtonClicked: (Int) -> Unit,
   onHealthButtonClicked: (Int) -> Unit
 ) {

@@ -23,6 +23,9 @@ import com.fedcampus.ui.theme.MiddleBlue
 import com.fedcampus.ui.theme.White
 import com.fedcampus.R
 
+/**
+ * TODO The @param options is reserved for view-model.
+ */
 // Design the format of the initial interface
 @Composable
 fun SplashScreen(
