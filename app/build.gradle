@@ -6,6 +6,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/huanjingheng/d:key.keystore')
+            storePassword '20020115'
+            keyAlias 'key123'
+            keyPassword '20020115'
+        }
+    }
     namespace 'com.fedcampus'
     compileSdk 33
 
