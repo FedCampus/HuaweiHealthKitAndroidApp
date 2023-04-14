@@ -17,6 +17,11 @@ android {
     namespace 'com.fedcampus'
     compileSdk 33
 
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
     defaultConfig {
         applicationId 'com.cuhk.fedcampus'
         minSdk 29
